@@ -1,0 +1,126 @@
+﻿@model SHB.Domain.User
+
+@{
+    ViewData["Title"] = "GetUserById";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>GetUserById</h1>
+<h4>User Information</h4>
+
+<div class="container">
+    <form>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="StudentCode" class="control-label"></label>
+                    <input asp-for="StudentCode" class="form-control" value="@Model.StudentCode" readonly />
+                    <span asp-validation-for="StudentCode" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" value="@Model.FirstName" readonly />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MiddleName" class="control-label"></label>
+                    <input asp-for="MiddleName" class="form-control" value="@Model.MiddleName" readonly />
+                    <span asp-validation-for="MiddleName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" value="@Model.LastName" readonly />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FullName" class="control-label"></label>
+                    <input asp-for="FullName" class="form-control" value="@Model.FullName" readonly />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="BirthDay">BirthDay</label>
+                    <input class="form-control" value=@Model.BirthDay readonly id="BirthDay" name="BirthDay" />
+                    <span class="text-danger field-validation-valid" data-valmsg-for="BirthDay" data-valmsg-replace="true"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" value="@Model.Phone" readonly />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" value="@Model.Email" readonly />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" value="@Model.Address" readonly />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" value="@Model.City" readonly />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Country" class="control-label"></label>
+                    <input asp-for="Country" class="form-control" value="@Model.Country" readonly />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PostalCode" class="control-label"></label>
+                    <input asp-for="PostalCode" class="form-control" value="@Model.PostalCode" readonly />
+                    <span asp-validation-for="PostalCode" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Faculty" class="control-label"></label>
+                    <input asp-for="Faculty" class="form-control" value="@Model.Faculty.Name" readonly />
+                    <span asp-validation-for="Faculty" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Program" class="control-label"></label>
+                    <input asp-for="Program" class="form-control" value="@Model.Program.Name" readonly />
+                    <span asp-validation-for="Program" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UserType" class="control-label"></label>
+                    <input asp-for="UserType" class="form-control" value="@Model.UserType.UserTypeDesc" readonly />
+                    <span asp-validation-for="UserType" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FieldOfStudy" class="control-label"></label>
+                    <input asp-for="FieldOfStudy" class="form-control" value="@Model.FieldOfStudy.Name" readonly />
+                    <span asp-validation-for="FieldOfStudy" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+<div>
+    <a href="@Url.Action("UpdateUser", "User", new { id = Model.Id})" class="btn btn-warning" role="button">Edit</a>
+    <a href="@Url.Action("Index", "User") " class="btn btn-info bi bi-arrow-left-circle-fill" role="button">
+        Back to List
+    </a>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

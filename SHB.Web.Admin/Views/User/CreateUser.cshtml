@@ -1,0 +1,127 @@
+﻿@model SHB.Domain.User
+
+@{
+    ViewData["Title"] = "Create User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Create User</h1>
+
+<h4>User</h4>
+<hr />
+
+<div class="container">
+    <form asp-action="CreateUser" method="post">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="StudentCode" class="control-label"></label>
+                    <input asp-for="StudentCode" class="form-control" />
+                    <span asp-validation-for="StudentCode" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FirstName" class="control-label"></label>
+                    <input asp-for="FirstName" class="form-control" />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MiddleName" class="control-label"></label>
+                    <input asp-for="MiddleName" class="form-control" />
+                    <span asp-validation-for="MiddleName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="LastName" class="control-label"></label>
+                    <input asp-for="LastName" class="form-control" />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FacultyId" class="control-label"></label>
+                    <input asp-for="FacultyId" class="form-control" />
+                    <span asp-validation-for="FacultyId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="BirthDay" class="control-label"></label>
+                    <input asp-for="BirthDay" class="form-control" />
+                    <span asp-validation-for="BirthDay" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Phone" class="control-label"></label>
+                    <input asp-for="Phone" class="form-control" />
+                    <span asp-validation-for="Phone" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="ProgramId" class="control-label"></label>
+                    <input asp-for="ProgramId" class="form-control" />
+                    <span asp-validation-for="ProgramId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FieldOfStudyId" class="control-label"></label>
+                    <input asp-for="FieldOfStudyId" class="form-control" />
+                    <span asp-validation-for="FieldOfStudyId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="UserTypeId" class="control-label"></label>
+                    <input asp-for="UserTypeId" class="form-control" />
+                    <span asp-validation-for="UserTypeId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label"></label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="City" class="control-label"></label>
+                    <input asp-for="City" class="form-control" />
+                    <span asp-validation-for="City" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Country" class="control-label"></label>
+                    <input asp-for="Country" class="form-control" />
+                    <span asp-validation-for="Country" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="PostalCode" class="control-label"></label>
+                    <input asp-for="PostalCode" class="form-control" />
+                    <span asp-validation-for="PostalCode" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password" class="control-label"></label>
+                    <input asp-for="Password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Thêm nút "Create" ở đây -->
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+        </div>
+    </form>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+

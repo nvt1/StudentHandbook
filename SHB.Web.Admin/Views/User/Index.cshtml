@@ -1,0 +1,102 @@
+﻿@model IEnumerable<SHB.Domain.User>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 style="text-align:center">USER MANAGER</h1>
+
+<p style="text-align:right">
+    <a href="@Url.Action("CreateUser","User")" class="btn btn-success bi bi-person-add" role="button" style="font-weight:bold; color:white;text-align: right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-add" viewBox="0 0 16 16">
+            <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />
+            <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z" />
+        </svg>
+        New User
+    </a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr style=" font-weight: bold; font-size:16px">
+            <th style="text-align:center; width:9%">
+                @Html.DisplayNameFor(model => model.StudentCode)
+            </th>
+            <th style ="text-align:center; width:9%">
+                @Html.DisplayNameFor(model => model.FullName)
+            </th>
+            <th style="text-align:center; width:9%">
+                @Html.DisplayNameFor(model => model.Faculty)
+            </th>
+            <th style="text-align:center; width:5%">
+                @Html.DisplayNameFor(model => model.BirthDay)
+            </th>
+            <th style="text-align:center; width:8%">
+                @Html.DisplayNameFor(model => model.Program)
+            </th>
+            <th style="text-align:center; width:10%">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th style="text-align:center; width:8%">
+                @Html.DisplayNameFor(model => model.FieldOfStudy)
+            </th>
+            <th style="text-align:center; width:15%;text-align:center" > Action </th>
+        </tr>
+    </thead>
+    <tbody >
+@foreach (var item in Model) {
+            <tr >
+                <td style="text-align:center; width:7%;height: 100px; vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.StudentCode)
+            </td>
+                <td style="text-align:center; width:9%;height: 100px; vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.FullName)
+            </td>
+                <td style="text-align:center; width:9%;height: 100px; vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.Faculty.Name)
+            </td>
+                <td style="text-align:center; width:5%;height: 100px; vertical-align: middle;">
+                    @String.Format("{0:dd/MM/yyyy}", item.BirthDay)
+            </td>
+                <td style="text-align:center; width:8%;height: 100px; vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.Program.Name)
+            </td>
+                <td style="text-align:center; width:10%;height: 100px; vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+                <td style="text-align:center; width:8%;height: 100px; vertical-align: middle;">
+                @Html.DisplayFor(modelItem => item.FieldOfStudy.Name)
+            </td>
+                <td style="text-align:center; width:17%;height: 100px; vertical-align: middle;">
+                <a href="@Url.Action("UpdateUser", "User", new { id = item.Id})" class="btn btn-warning" role="button">Edit</a>
+                <a href="@Url.Action("GetUserById", "User",  new { id = item.Id})" class="btn btn-primary" role="button">Details</a>
+                <a href="@Url.Action("DeleteUser", "User", new { id = item.Id })" class="btn btn-danger" role="button">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+<div style="text-align:center; font-size: 15px;">
+    @if (Model.Any()) // Kiểm tra xem có dữ liệu để phân trang không
+    {
+        @if (ViewBag.PageCount > 1) // Kiểm tra xem có nhiều hơn 1 trang không
+        {
+            @if (ViewBag.PageNumber > 1)
+            {
+                <a style="color: blue; font-weight: inherit" href="@Url.Action("Index", new { page = ViewBag.PageNumber - 1 })">Previous</a>
+            }
+
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                <a style="color: blue; font-weight: inherit" href="@Url.Action("Index", new { page = i })" class="@(i == ViewBag.PageNumber ? "active" : "")">@i</a>
+            }
+
+            @if (ViewBag.PageNumber < ViewBag.PageCount)
+            {
+                <a style="color: blue; font-weight: inherit" href="@Url.Action("Index", new { page = ViewBag.PageNumber + 1 })">Next</a>
+            }
+        }
+    }
+</div>
+
